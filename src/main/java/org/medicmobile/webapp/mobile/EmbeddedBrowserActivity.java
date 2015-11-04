@@ -54,9 +54,11 @@ public class EmbeddedBrowserActivity extends Activity {
 	}
 
 	public void onBackPressed() {
-		if(container != null && container.canGoBack()) {
-			container.goBack();
-		} else super.onBackPressed();
+		if(container == null) {
+			super.onBackPressed();
+		} else {
+			container.evaluateJavascript("angular.element(document.body).scope().handleAndroidBack()");
+		}
 	}
 
 	private void openSettings() {
