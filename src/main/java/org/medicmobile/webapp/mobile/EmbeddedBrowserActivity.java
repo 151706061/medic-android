@@ -1,5 +1,7 @@
 package org.medicmobile.webapp.mobile;
 
+import java.io.File;
+
 import android.app.*;
 import android.content.*;
 import android.graphics.*;
@@ -9,8 +11,12 @@ import android.util.*;
 import android.view.*;
 import android.view.inputmethod.*;
 import android.webkit.*;
+import android.widget.*;
 
-import java.io.File;
+import com.google.android.gms.common.*;
+import com.google.android.gms.common.api.*;
+import com.google.android.gms.common.api.GoogleApiClient.*;
+import com.google.android.gms.location.*;
 
 import static org.medicmobile.webapp.mobile.BuildConfig.DEBUG;
 import static org.medicmobile.webapp.mobile.BuildConfig.DISABLE_APP_URL_VALIDATION;
@@ -112,8 +118,26 @@ public class EmbeddedBrowserActivity extends Activity {
 	private void enableJavascript(WebView container) {
 		container.getSettings().setJavaScriptEnabled(true);
 
+		GoogleApiClient.ConnectionCallbacks connectedListener = new GoogleApiClient.ConnectionCallbacks() {
+			public void onConnected(Bundle connectionHint) {
+				toast("onConnected: connectionHint=" + connectionHint);
+			}
+
+			public void onConnectionSuspended(int cause) {
+				toast("onConnectionSuspended: cause=" + cause);
+			}
+		};
+		GoogleApiClient.OnConnectionFailedListener connectionFailedListener = new GoogleApiClient.OnConnectionFailedListener() {
+			public void onConnectionFailed(ConnectionResult result) {
+				toast("onConnectionFailed: result=" + result);
+			}
+		};
+
 		MedicAndroidJavascript maj = new MedicAndroidJavascript();
 		maj.setSoundAlert(new SoundAlert(this));
+		maj.setApiClient(new GoogleApiClient.Builder(this, connectedListener, connectionFailedListener)
+				.addApi(LocationServices.API)
+				.build());
 
 		container.addJavascriptInterface(maj, "medicmobile_android");
 	}
@@ -141,6 +165,10 @@ public class EmbeddedBrowserActivity extends Activity {
 				return false;
 			}
 		});
+	}
+
+	private void toast(String message) {
+		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 	}
 
 	private void log(String message, Object...extras) {

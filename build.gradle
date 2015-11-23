@@ -9,6 +9,10 @@ buildscript {
 
 apply plugin: 'android'
 
+dependencies {
+	compile 'com.google.android.gms:play-services-location:7.+'
+}
+
 // enable verbose lint warnings
 gradle.projectsEvaluated {
 	tasks.withType(JavaCompile) {
