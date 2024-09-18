@@ -409,11 +409,22 @@ android {
       applicationId = 'org.medicmobile.webapp.mobile.moh_niger_chw'
     }
 
+    moh_mali_chw_training_2 {
+      dimension = 'brand'
+      applicationId = 'org.medicmobile.webapp.mobile.moh_mali_chw_training_2'
+      buildConfigField "boolean", "IS_TRAINING_APP", 'true'
+    }
+    
     moh_kenya_echis {
       dimension = 'brand'
       applicationId = 'org.medicmobile.webapp.mobile.moh_kenya_echis'
     }
 
+    moh_mali_chw_training_three {
+      dimension = 'brand'
+      applicationId = 'org.medicmobile.webapp.mobile.moh_mali_chw_training_three'
+      buildConfigField "boolean", "IS_TRAINING_APP", 'true'
+    }
     moh_togo_uat {
       dimension = 'brand'
       applicationId = 'org.medicmobile.webapp.mobile.moh_togo_uat'
@@ -434,11 +445,20 @@ android {
       applicationId = 'org.medicmobile.webapp.mobile.gandaki_ne'
     }
 
+    moh_civ {
+      dimension = 'brand'
+      applicationId = 'org.medicmobile.webapp.mobile.moh_civ'
+    }
+    
     moh_civ_uat {
       dimension = 'brand'
       applicationId = 'org.medicmobile.webapp.mobile.moh_civ_uat'
     }
 
+    safaridoctors_kenya_yha {
+      dimension = 'brand'
+      applicationId = 'org.medicmobile.webapp.mobile.safaridoctors_kenya_yha'
+    }
   }
 
   splits {

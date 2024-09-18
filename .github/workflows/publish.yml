@@ -418,6 +418,58 @@ jobs:
         ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_MOH_NIGER_CHW }}
         ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_MOH_NIGER_CHW }}
 
+    - name: Unpack secrets moh_mali_chw_training_three
+      env:
+        ANDROID_SECRETS_KEY: ${{ secrets.ANDROID_SECRETS_KEY_MOH_MALI_CHW_TRAINING_THREE }}
+        ANDROID_SECRETS_IV: ${{ secrets.ANDROID_SECRETS_IV_MOH_MALI_CHW_TRAINING_THREE }}
+      run: make org=moh_mali_chw_training_three keydec
+
+    - name: Assemble moh_mali_chw_training_three
+      uses: maierj/fastlane-action@v1.4.0
+      with:
+        lane: build
+        options: '{ "flavor": "moh_mali_chw_training_three" }'
+      env:
+        ANDROID_KEYSTORE_PATH: moh_mali_chw_training_three.keystore
+        ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_MOH_MALI_CHW_TRAINING_THREE }}
+        ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_MOH_MALI_CHW_TRAINING_THREE }}
+
+    - name: Bundle moh_mali_chw_training_three
+      uses: maierj/fastlane-action@v1.4.0
+      with:
+        lane: bundle
+        options: '{ "flavor": "moh_mali_chw_training_three" }'
+      env:
+        ANDROID_KEYSTORE_PATH: moh_mali_chw_training_three.keystore
+        ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_MOH_MALI_CHW_TRAINING_THREE }}
+        ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_MOH_MALI_CHW_TRAINING_THREE }}
+    
+    - name: Unpack secrets moh_mali_chw_training_2
+      env:
+        ANDROID_SECRETS_KEY: ${{ secrets.ANDROID_SECRETS_KEY_MOH_MALI_CHW_TRAINING_2 }}
+        ANDROID_SECRETS_IV: ${{ secrets.ANDROID_SECRETS_IV_MOH_MALI_CHW_TRAINING_2 }}
+      run: make org=moh_mali_chw_training_2 keydec
+
+    - name: Assemble moh_mali_chw_training_2
+      uses: maierj/fastlane-action@v1.4.0
+      with:
+        lane: build
+        options: '{ "flavor": "moh_mali_chw_training_2" }'
+      env:
+        ANDROID_KEYSTORE_PATH: moh_mali_chw_training_2.keystore
+        ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_MOH_MALI_CHW_TRAINING_2 }}
+        ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_MOH_MALI_CHW_TRAINING_2 }}
+
+    - name: Bundle moh_mali_chw_training_2
+      uses: maierj/fastlane-action@v1.4.0
+      with:
+        lane: bundle
+        options: '{ "flavor": "moh_mali_chw_training_2" }'
+      env:
+        ANDROID_KEYSTORE_PATH: moh_mali_chw_training_2.keystore
+        ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_MOH_MALI_CHW_TRAINING_2 }}
+        ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_MOH_MALI_CHW_TRAINING_2 }}
+
     - name: Unpack secrets moh_togo_uat
       env:
         ANDROID_SECRETS_KEY: ${{ secrets.ANDROID_SECRETS_KEY_MOH_TOGO_UAT }}
@@ -471,7 +523,6 @@ jobs:
         ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_MOH_TOGO_ECHIS }}
         ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_MOH_TOGO_ECHIS }}
 
-
     - name: Unpack secrets lumbini_ne
       env:
         ANDROID_SECRETS_KEY: ${{ secrets.ANDROID_SECRETS_KEY_LUMBINI_NE }}
@@ -524,6 +575,58 @@ jobs:
         ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_GANDAKI_NE }}
         ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_GANDAKI_NE }}
 
+    - name: Unpack secrets safaridoctors_kenya_yha
+      env:
+        ANDROID_SECRETS_KEY: ${{ secrets.ANDROID_SECRETS_KEY_SAFARIDOCTORS_KENYA_YHA }}
+        ANDROID_SECRETS_IV: ${{ secrets.ANDROID_SECRETS_IV_SAFARIDOCTORS_KENYA_YHA }}
+      run: make org=safaridoctors_kenya_yha keydec
+
+    - name: Assemble safaridoctors_kenya_yha
+      uses: maierj/fastlane-action@v1.4.0
+      with:
+        lane: build
+        options: '{ "flavor": "safaridoctors_kenya_yha" }'
+      env:
+        ANDROID_KEYSTORE_PATH: safaridoctors_kenya_yha.keystore
+        ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_SAFARIDOCTORS_KENYA_YHA }}
+        ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_SAFARIDOCTORS_KENYA_YHA }}
+
+    - name: Bundle safaridoctors_kenya_yha
+      uses: maierj/fastlane-action@v1.4.0
+      with:
+        lane: bundle
+        options: '{ "flavor": "safaridoctors_kenya_yha" }'
+      env:
+        ANDROID_KEYSTORE_PATH: safaridoctors_kenya_yha.keystore
+        ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_SAFARIDOCTORS_KENYA_YHA }}
+        ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_SAFARIDOCTORS_KENYA_YHA }}
+
+    - name: Unpack secrets moh_civ
+      env:
+        ANDROID_SECRETS_KEY: ${{ secrets.ANDROID_SECRETS_KEY_MOH_CIV }}
+        ANDROID_SECRETS_IV: ${{ secrets.ANDROID_SECRETS_IV_MOH_CIV }}
+      run: make org=moh_civ keydec
+
+    - name: Assemble moh_civ
+      uses: maierj/fastlane-action@v1.4.0
+      with:
+        lane: build
+        options: '{ "flavor": "moh_civ" }'
+      env:
+        ANDROID_KEYSTORE_PATH: moh_civ.keystore
+        ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_MOH_CIV }}
+        ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_MOH_CIV }}
+
+    - name: Bundle moh_civ
+      uses: maierj/fastlane-action@v1.4.0
+      with:
+        lane: bundle
+        options: '{ "flavor": "moh_civ" }'
+      env:
+        ANDROID_KEYSTORE_PATH: moh_civ.keystore
+        ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_MOH_CIV }}
+        ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_MOH_CIV }}
+
 
     - name: GitHub release
       uses: softprops/action-gh-release@v1
@@ -535,3 +638,4 @@ jobs:
           build/outputs/bundle/**/*-release.aab
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+
